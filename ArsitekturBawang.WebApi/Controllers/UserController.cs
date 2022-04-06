@@ -47,7 +47,7 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult<UserResource>> Update(int id, CancellationToken cancellationToken)
+    public async Task<ActionResult> Delete(int id, CancellationToken cancellationToken)
     {
         await _userService.Delete(id, cancellationToken);
         return NoContent();
