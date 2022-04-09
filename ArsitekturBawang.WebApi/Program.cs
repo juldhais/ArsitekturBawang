@@ -45,6 +45,7 @@ app.UseExceptionHandler(app =>
         context.Response.StatusCode = contextFeature.Error switch
         {
             OperationCanceledException => (int)HttpStatusCode.ServiceUnavailable,
+            BadRequestException => (int)HttpStatusCode.BadRequest,
             NotFoundException => (int)HttpStatusCode.NotFound,
             _ => (int)HttpStatusCode.InternalServerError
         };
